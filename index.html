@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Travel Adventures</title>
+    <!-- Use Tailwind CSS for dynamic styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #1a202c; /* Fallback color */
+        }
+        .text-shadow-lg {
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+        }
+        /* Custom styles for the side menu on mobile */
+        @media (max-width: 768px) {
+            .side-menu {
+                transform: translateX(-100%);
+            }
+            .side-menu.open {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-4 relative">
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-button" class="md:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-gray-800 text-white shadow-lg">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+
+    <!-- Side Menu -->
+    <div id="side-menu" class="side-menu fixed top-0 left-0 h-full w-64 bg-gray-800 bg-opacity-90 shadow-xl transition-transform duration-300 ease-in-out transform z-40 p-6 flex flex-col md:relative md:flex md:w-auto md:h-auto md:transform-none md:bg-transparent md:p-0 md:bg-opacity-100 md:shadow-none">
+        <button id="close-menu-button" class="md:hidden self-end mb-4 text-white p-2 rounded-full hover:bg-gray-700 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <nav class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-8">
+            <a href="#home" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">Home</a>
+            <a href="#destinations" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">Destinations</a>
+            <a href="#gallery" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">Gallery</a>
+            <a href="#contact" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="w-full max-w-4xl p-8 rounded-2xl shadow-2xl flex flex-col items-center space-y-10 mt-16 md:mt-0">
+
+        <!-- Home and Introduction Section -->
+        <section id="home" class="flex flex-col items-center space-y-4 text-center">
+            <h1 class="text-5xl font-extrabold text-white text-shadow-lg whitespace-nowrap">My Travel Adventures</h1>
+            <p class="text-xl md:text-2xl font-light text-white text-shadow-lg mt-4 max-w-prose">
+                Join me on a journey to explore the world's most beautiful and exciting destinations.
+            </p>
+        </section>
+
+        <!-- Destinations Section -->
+        <section id="destinations" class="bg-gray-900 bg-opacity-50 p-6 rounded-xl w-full">
+            <h2 class="text-3xl font-bold mb-4 text-white">Favorite Destinations</h2>
+            <div class="space-y-4">
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-white">Kyoto, Japan</h3>
+                    <p class="text-gray-300">A city of ancient temples, tranquil gardens, and vibrant cherry blossoms.</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-white">Santorini, Greece</h3>
+                    <p class="text-gray-300">Iconic white-washed buildings, stunning sunsets, and volcanic beaches.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="bg-gray-900 bg-opacity-50 p-6 rounded-xl w-full">
+            <h2 class="text-3xl font-bold mb-4 text-white">Gallery</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <img src="https://images.pexels.com/photos/1018911/pexels-photo-1018911.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Beautiful landscape" class="rounded-lg w-full h-auto">
+                <img src="https://images.pexels.com/photos/45853/pexels-photo-45853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Mountain lake" class="rounded-lg w-full h-auto">
+                <img src="https://images.pexels.com/photos/33894777/pexels-photo-33894777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Canyon road" class="rounded-lg w-full h-auto">
+                <img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Sunrise over mountains" class="rounded-lg w-full h-auto">
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-gray-900 bg-opacity-50 p-6 rounded-xl w-full">
+            <h2 class="text-3xl font-bold mb-4 text-white">Contact Me</h2>
+            <form action="#" method="post" class="space-y-4">
+                <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400">
+                <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400">
+                <textarea placeholder="Your Message" rows="4" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400"></textarea>
+                <button type="submit" class="w-full p-3 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const closeButton = document.getElementById('close-menu-button');
+            const sideMenu = document.getElementById('side-menu');
+            const links = sideMenu.querySelectorAll('a');
+
+            menuButton.addEventListener('click', () => {
+                sideMenu.classList.add('open');
+            });
+
+            closeButton.addEventListener('click', () => {
+                sideMenu.classList.remove('open');
+            });
+
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 768) {
+                        sideMenu.classList.remove('open');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
