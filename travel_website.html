@@ -30,6 +30,23 @@
                 transform: translateX(0);
             }
         }
+        /* Animation for section fading in */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Hide sections that are not active */
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: flex;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-4 relative">
@@ -49,10 +66,12 @@
             </svg>
         </button>
         <nav class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-8">
-            <a href="#home" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">Home</a>
-            <a href="#destinations" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">Destinations</a>
-            <a href="#gallery" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">Gallery</a>
-            <a href="#contact" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">Contact</a>
+            <a href="#" data-target="home" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">Home</a>
+            <a href="#" data-target="about-me" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">About Me</a>
+            <a href="#" data-target="about-website" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">About Website</a>
+            <a href="#" data-target="destinations" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">Destinations</a>
+            <a href="#" data-target="gallery" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">Gallery</a>
+            <a href="#" data-target="contact" class="text-lg md:text-xl font-semibold text-black hover:text-gray-200 transition-colors">Contact</a>
         </nav>
     </div>
 
@@ -60,31 +79,47 @@
     <main class="w-full max-w-4xl p-8 rounded-2xl shadow-2xl flex flex-col items-center space-y-10 mt-16 md:mt-0">
 
         <!-- Home and Introduction Section -->
-        <section id="home" class="flex flex-col items-center space-y-4 text-center">
+        <section id="home" class="content-section flex flex-col items-center space-y-4 text-center fade-in active">
             <h1 class="text-5xl font-extrabold text-white text-shadow-lg whitespace-nowrap">My Travel Adventures</h1>
             <p class="text-xl md:text-2xl font-light text-white text-shadow-lg mt-4 max-w-prose">
                 Join me on a journey to explore the world's most beautiful and exciting destinations.
             </p>
         </section>
 
+        <!-- About Me Section -->
+        <section id="about-me" class="content-section w-full fade-in">
+            <h2 class="text-3xl font-bold mb-4 text-white text-shadow-lg">About Me</h2>
+            <p class="text-white text-shadow-lg">
+                I'm a passionate traveler and explorer. My goal is to capture the essence of each new place I visit and share my experiences with you. From bustling city streets to quiet mountain trails, I believe every journey is a story waiting to be told.
+            </p>
+        </section>
+
+        <!-- About Website Section -->
+        <section id="about-website" class="content-section w-full fade-in">
+            <h2 class="text-3xl font-bold mb-4 text-white text-shadow-lg">About This Website</h2>
+            <p class="text-white text-shadow-lg">
+                This website is my personal project, a digital travel diary created to showcase my adventures. It's built using modern web technologies like HTML, Tailwind CSS, and JavaScript. I'm constantly learning and adding new features to make it a better experience for my readers.
+            </p>
+        </section>
+
         <!-- Destinations Section -->
-        <section id="destinations" class="bg-gray-900 bg-opacity-50 p-6 rounded-xl w-full">
-            <h2 class="text-3xl font-bold mb-4 text-white">Favorite Destinations</h2>
+        <section id="destinations" class="content-section w-full fade-in">
+            <h2 class="text-3xl font-bold mb-4 text-white text-shadow-lg">Favorite Destinations</h2>
             <div class="space-y-4">
-                <div class="bg-gray-800 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold text-white">Kyoto, Japan</h3>
-                    <p class="text-gray-300">A city of ancient temples, tranquil gardens, and vibrant cherry blossoms.</p>
+                <div class="p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-white text-shadow-lg">Kyoto, Japan</h3>
+                    <p class="text-white text-shadow-lg">A city of ancient temples, tranquil gardens, and vibrant cherry blossoms.</p>
                 </div>
-                <div class="bg-gray-800 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold text-white">Santorini, Greece</h3>
-                    <p class="text-gray-300">Iconic white-washed buildings, stunning sunsets, and volcanic beaches.</p>
+                <div class="p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-white text-shadow-lg">Santorini, Greece</h3>
+                    <p class="text-white text-shadow-lg">Iconic white-washed buildings, stunning sunsets, and volcanic beaches.</p>
                 </div>
             </div>
         </section>
 
         <!-- Gallery Section -->
-        <section id="gallery" class="bg-gray-900 bg-opacity-50 p-6 rounded-xl w-full">
-            <h2 class="text-3xl font-bold mb-4 text-white">Gallery</h2>
+        <section id="gallery" class="content-section w-full fade-in">
+            <h2 class="text-3xl font-bold mb-4 text-white text-shadow-lg">Gallery</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <img src="https://images.pexels.com/photos/1018911/pexels-photo-1018911.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Beautiful landscape" class="rounded-lg w-full h-auto">
                 <img src="https://images.pexels.com/photos/45853/pexels-photo-45853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Mountain lake" class="rounded-lg w-full h-auto">
@@ -94,14 +129,25 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="bg-gray-900 bg-opacity-50 p-6 rounded-xl w-full">
-            <h2 class="text-3xl font-bold mb-4 text-white">Contact Me</h2>
-            <form action="#" method="post" class="space-y-4">
-                <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400">
-                <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400">
-                <textarea placeholder="Your Message" rows="4" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400"></textarea>
-                <button type="submit" class="w-full p-3 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors">Send Message</button>
-            </form>
+        <section id="contact" class="content-section w-full fade-in">
+            <h2 class="text-3xl font-bold mb-4 text-white text-shadow-lg">Contact Me</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Left column with buttons -->
+                <div class="w-full md:w-1/3 p-4 rounded-lg bg-gray-800 bg-opacity-90 shadow-lg flex flex-col space-y-4">
+                    <a href="mailto:youremail@example.com" class="p-3 bg-blue-500 rounded-lg text-white font-semibold text-center hover:bg-blue-600 transition-colors">Email Me</a>
+                    <a href="https://twitter.com/yourhandle" target="_blank" class="p-3 bg-blue-500 rounded-lg text-white font-semibold text-center hover:bg-blue-600 transition-colors">Connect on Twitter</a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="p-3 bg-blue-500 rounded-lg text-white font-semibold text-center hover:bg-blue-600 transition-colors">Find me on LinkedIn</a>
+                </div>
+                <!-- Right column with form -->
+                <div class="w-full md:w-2/3">
+                    <form action="#" method="post" class="space-y-4">
+                        <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400">
+                        <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400">
+                        <textarea placeholder="Your Message" rows="4" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400"></textarea>
+                        <button type="submit" class="w-full p-3 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors">Send Message</button>
+                    </form>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -110,8 +156,21 @@
             const menuButton = document.getElementById('menu-button');
             const closeButton = document.getElementById('close-menu-button');
             const sideMenu = document.getElementById('side-menu');
-            const links = sideMenu.querySelectorAll('a');
+            const navLinks = document.querySelectorAll('nav a');
+            const contentSections = document.querySelectorAll('.content-section');
 
+            // Function to show a specific section and hide others
+            const showSection = (targetId) => {
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            };
+
+            // Toggle the side menu on mobile
             menuButton.addEventListener('click', () => {
                 sideMenu.classList.add('open');
             });
@@ -120,13 +179,41 @@
                 sideMenu.classList.remove('open');
             });
 
-            links.forEach(link => {
-                link.addEventListener('click', () => {
+            // Handle navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const targetId = link.getAttribute('data-target');
+                    showSection(targetId);
+
                     if (window.innerWidth < 768) {
                         sideMenu.classList.remove('open');
                     }
                 });
             });
+
+            // Fade-in effect on scroll (only applies to the active section)
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            contentSections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Show the home section by default on page load
+            showSection('home');
         });
     </script>
 </body>
